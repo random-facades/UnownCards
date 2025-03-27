@@ -1,0 +1,21 @@
+{
+   "id": "UnownCards",
+   "name": "Unown Cards",
+   "author": ["Kek", "MyDude", "InertSteak"],
+   "description": "Unown Cards for Pokermon",
+   "prefix": "poke",
+   "main_file": "unowncards.lua",
+   "priority": 10,
+   "badge_colour": "ED533A",
+   "badge_text_colour": "FFFFFF",
+   "display_name": "Unown Cards",
+   "version": "0.0.1",
+   "dependencies": [
+      "Steamodded (>=1.0.0~ALPHA-1303a)",
+      "Lovely (>=0.7)",
+      "Pokermon (>=2.6.0)"
+   ],
+   "conflicts": [],
+   "provides": [],
+   "dump_loc": false 
+}
