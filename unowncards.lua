@@ -10,29 +10,29 @@ AnimatedPokemon.j_poke_awakened_unown = { frames_per_row = 12, frames = 36, fps 
 SMODS.Atlas({
   key = "j_poke_awakened_unown",
   path = "j_poke_awakened_unown.png",
-  px = 71,
-  py = 95
+  px = 290,
+  py = 285
 }):register()
 
 SMODS.Atlas({
   key = "j_poke_awakened_unown_shiny",
   path = "j_poke_awakened_unown_shiny.png",
-  px = 71,
-  py = 95
+  px = 290,
+  py = 285
 }):register()
 
 SMODS.Atlas({
   key = "j_poke_awakened_unown_soul",
   path = "j_poke_awakened_unown_soul.png",
-  px = 71,
-  py = 95
+  px = 290,
+  py = 285
 }):register()
 
 SMODS.Atlas({
   key = "j_poke_awakened_unown_shiny_soul",
   path = "j_poke_awakened_unown_shiny_soul.png",
-  px = 71,
-  py = 95
+  px = 290,
+  py = 285
 }):register()
 
 SMODS.Atlas({
