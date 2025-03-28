@@ -5,6 +5,35 @@ mod_dir = '' .. SMODS.current_mod.path
 unown_config = SMODS.current_mod.config
 pokermon_config = SMODS.Mods["Pokermon"].config
 
+AnimatedPokemon.j_poke_awakened_unown = { frames_per_row = 12, frames = 36, fps = 12, soul = true, size = { x = 290, y = 285 } }
+
+SMODS.Atlas({
+  key = "j_poke_awakened_unown",
+  path = "j_poke_awakened_unown.png",
+  px = 71,
+  py = 95
+}):register()
+
+SMODS.Atlas({
+  key = "j_poke_awakened_unown_shiny",
+  path = "j_poke_awakened_unown_shiny.png",
+  px = 71,
+  py = 95
+}):register()
+
+SMODS.Atlas({
+  key = "j_poke_awakened_unown_soul",
+  path = "j_poke_awakened_unown_soul.png",
+  px = 71,
+  py = 95
+}):register()
+
+SMODS.Atlas({
+  key = "j_poke_awakened_unown_shiny_soul",
+  path = "j_poke_awakened_unown_shiny_soul.png",
+  px = 71,
+  py = 95
+}):register()
 
 SMODS.Atlas({
   key = "logo",
