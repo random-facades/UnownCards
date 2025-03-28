@@ -1,81 +1,10 @@
 -- Begin Unown
 
-
 mod_dir = '' .. SMODS.current_mod.path
 unown_config = SMODS.current_mod.config
 pokermon_config = SMODS.Mods["Pokermon"].config
 
 AnimatedPokemon.j_poke_unown = { frames_per_row = 12, frames = 36, fps = 12, soul = true, size = { x = 290, y = 285 } }
-
-SMODS.Atlas({
-  key = "j_poke_unown",
-  path = "j_poke_unown.png",
-  px = 290,
-  py = 285
-}):register()
-
-SMODS.Atlas({
-  key = "j_poke_unown_shiny",
-  path = "j_poke_unown_shiny.png",
-  px = 290,
-  py = 285
-}):register()
-
-SMODS.Atlas({
-  key = "j_poke_unown_soul",
-  path = "j_poke_unown_soul.png",
-  px = 290,
-  py = 285
-}):register()
-
-SMODS.Atlas({
-  key = "j_poke_unown_shiny_soul",
-  path = "j_poke_unown_shiny_soul.png",
-  px = 290,
-  py = 285
-}):register()
-
-SMODS.Atlas({
-  key = "logo",
-  path = "Pokermon.png",
-  px = 389,
-  py = 216
-})
-
-SMODS.Atlas({
-  key = "symboldeck",
-  path = "symboldeck.png",
-  px = 71,
-  py = 95
-}):register()
-
-SMODS.Atlas({
-  key = "Unown",
-  path = "UnownDeck.png",
-  px = 71,
-  py = 95
-}):register()
-
-SMODS.Atlas({
-  key = "Unown_hc",
-  path = "UnownDeck.png",
-  px = 71,
-  py = 95
-}):register()
-
-SMODS.Atlas({
-  key = "pokeui_assets",
-  path = "pokeui_assets.png",
-  px = 18,
-  py = 18
-}):register()
-
-SMODS.Atlas({
-  key = "pokeui_assets_hc",
-  path = "pokeui_assets.png",
-  px = 18,
-  py = 18
-}):register()
 
 --Load functions
 local functions = NFS.getDirectoryItems(mod_dir .. "functions")

@@ -1,17 +1,7 @@
 local unown = {
    name = "unown",
    pos = { x = 0, y = 0 },
-   soul_pos = {
-      x = 0,
-      y = 0,
-      draw = function(card, scale_mod, rotate_mod)
-         card.children.center.VT.w = card.T.w
-         card.children.floating_sprite:draw_shader('dissolve', 0, nil, nil, card.children.center, scale_mod, rotate_mod,
-            nil, 0.1 + 0.03 * math.sin(1.8 * G.TIMERS.REAL), nil, 0.6)
-         card.children.floating_sprite:draw_shader('dissolve', nil, nil, nil, card.children.center, scale_mod, rotate_mod)
-         card.children.center.VT.w = card.T.w * 1.174
-      end
-   },
+   soul_pos = { x = 0, y = 0, },
    config = { extra = { mult = 4 } },
    loc_vars = function(self, info_queue, card)
       type_tooltip(self, info_queue, card)
@@ -56,10 +46,29 @@ local unown = {
          end
       end
    end,
-   update = function(self, card, dt)
-      card.children.center.VT.x = card.T.x - (G.CARD_H - G.CARD_W) / 2
-      card.children.floating_sprite.VT.x = card.children.center.VT.x
-      card.children.center.VT.w = card.T.w * 1.174
+   pre_draw = function(self, card, drawStep)
+      local center = card.children.center
+      -- trigger on shadow or first draw
+      if drawStep.order <= -999 then
+         center.VT.x = card.T.x - (card.T.h - card.T.w) / 2
+         card.children.floating_sprite.VT.x = center.VT.x
+         center.VT.w = card.T.w * 1.17
+      elseif drawStep.key == 'seal' then
+         swap_sprites_sizes(false)
+         center.prev_scale_mag = center.scale_mag
+         center.scale_mag = center.scale_mag / 3
+         center.VT.w = card.T.h * 290 / 285
+         center.VT.x = card.T.x - (card.T.h - card.T.w) * 0.66
+      elseif drawStep.key == 'soul' then
+         swap_sprites_sizes(true)
+         center.scale_mag = center.prev_scale_mag
+         center.VT.w = card.T.w * 1.17
+         center.VT.x = card.T.x - (card.T.h - card.T.w) / 2
+      elseif drawStep.key == 'floating_sprite' then
+         center.VT.w = card.T.w
+      elseif drawStep.key == 'debuff' then
+         center.VT.w = card.T.w * 1.17
+      end
    end,
 }
 
@@ -99,7 +108,8 @@ local alph_ruins = {
       G.GAME.Unown = true
       if not from_debuff then
          local cards = {}
-         local to_create = { 'poke_Unown_poke_UU', 'poke_Unown_poke_UN', 'poke_Unown_poke_UO', 'poke_Unown_poke_UW', 'poke_Unown_poke_UN' }
+         local to_create = { 'poke_Unown_poke_UU', 'poke_Unown_poke_UN', 'poke_Unown_poke_UO', 'poke_Unown_poke_UW',
+            'poke_Unown_poke_UN' }
          for i, v in pairs(to_create) do
             cards[i] = create_playing_card({ front = G.P_CARDS[v] }, G.deck, nil, nil, { G.C.PURPLE })
          end
