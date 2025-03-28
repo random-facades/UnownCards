@@ -249,15 +249,9 @@ overwrite = true
 target = "game.lua"
 pattern = '''
 G.SPLASH_LOGO = Sprite(0, 0, 
-        13*SC_scale, 
-        13*SC_scale*(G.ASSET_ATLAS["balatro"].py/G.ASSET_ATLAS["balatro"].px),
-        G.ASSET_ATLAS["balatro"], {x=0,y=0})
-    G.SPLASH_LOGO:set_alignment({
-        major = G.title_top,
-        type = 'cm',
-        bond = 'Strong',
-        offset = {x=0,y=0}
-    })
+    13*SC_scale, 
+    13*SC_scale*(G.ASSET_ATLAS["balatro"].py/G.ASSET_ATLAS["balatro"].px),
+    G.ASSET_ATLAS["balatro"], {x=0,y=0})
 '''
 position = "at"
 payload = '''
@@ -265,20 +259,30 @@ G.SPLASH_LOGO = Sprite(0, 0,
     15*SC_scale, 
     15*SC_scale*(G.ASSET_ATLAS["poke_logo"].py/G.ASSET_ATLAS["poke_logo"].px),
     G.ASSET_ATLAS["poke_logo"], {x=0,y=0})
-    G.SPLASH_LOGO:set_alignment({
-        major = G.title_top,
-        type = 'cm',
-        bond = 'Strong',
-        offset = {x=0,y=0.2}
-    })
 '''
 match_indent = true
 overwrite = true
 
+# Adjust start menu logo alignment
 [[patches]]
 [patches.pattern]
-target = '=[Pokermon _ "functions/pokeanimations.lua"]'
-pattern = "AnimatedPokemon = {"
-position = "after"
-payload = "j_poke_awakened_unown = { frames_per_row = 12, frames = 36, fps = 12, soul = true, size = {x = 290, y = 285} },"
+target = "game.lua"
+pattern = '''
+G.SPLASH_LOGO:set_alignment({
+    major = G.title_top,
+    type = 'cm',
+    bond = 'Strong',
+    offset = {x=0,y=0}
+})
+'''
+position = "at"
+payload = '''
+G.SPLASH_LOGO:set_alignment({
+    major = G.title_top,
+    type = 'cm',
+    bond = 'Strong',
+    offset = {x=0,y=0.2}
+})
+'''
 match_indent = true
+overwrite = true
