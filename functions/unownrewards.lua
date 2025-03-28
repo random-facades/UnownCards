@@ -206,7 +206,7 @@ end
 unown_rewards = {
    -- specific joker creation
    EGG = function(card) unown_create_joker('j_poke_mystery_egg') end,
-   UNOWN = function(card) unown_create_joker('j_poke_awakened_unown') end,
+   UNOWN = function(card) unown_create_joker('j_poke_unown') end,
    RIVAL = function(card) unown_create_joker('j_poke_rival') end,
    GARY = function(card) unown_create_joker('j_poke_rival') end,
    BLUE = function(card) unown_create_joker('j_poke_rival') end,

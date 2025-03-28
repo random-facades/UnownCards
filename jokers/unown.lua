@@ -1,5 +1,5 @@
 local unown = {
-   name = "awakened_unown",
+   name = "unown",
    pos = { x = 0, y = 0 },
    soul_pos = {
       x = 0,
@@ -28,7 +28,7 @@ local unown = {
    rarity = 'poke_safari',
    cost = 10,
    stage = "Other",
-   atlas = "j_poke_awakened_unown",
+   atlas = "j_poke_unown",
    blueprint_compat = true,
    calculate = function(self, card, context)
       if context.cardarea == G.jokers and context.scoring_hand then

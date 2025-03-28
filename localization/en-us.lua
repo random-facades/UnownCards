@@ -22,7 +22,7 @@ return {
                "a card in your deck becomes {C:dark_edition}Unown{}",
             }
          },
-         j_poke_awakened_unown = {
+         j_poke_unown = {
             name = "Unown",
             text = {
                "{C:mult}+#1#{} Mult for each Unown in deck",
