@@ -100,7 +100,7 @@ match_indent = true
 target = "card.lua"
 pattern = "function Card:add_to_deck(from_debuff)"
 position = "after"
-payload = "if self.base and self.base.suit == 'poke_Unown' then G.GAME.Unown = true end"
+payload = "if self.base and self.base.suit == 'poke_Unown' then G.GAME.Unown = true; check_for_unlock({type = 'unown_cards'}) end"
 match_indent = true
 
 # Unown Deck - convert normal cards

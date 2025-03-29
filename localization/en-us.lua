@@ -10,6 +10,9 @@ return {
             name = "Symbolic Deck",
             text = {
                "Let the {C:dark_edition}UNOWN{} guide you"
+            },
+            unlock = {
+               "Find the {C:dark_edition}UNOWN{}"
             }
          },
       },

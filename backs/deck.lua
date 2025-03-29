@@ -6,6 +6,7 @@ local symboldeck = {
      return { vars = {} }
   end,
   pos = { x = 0, y = 0 },
+  unlocked = false,
   atlas = "symboldeck",
   apply = function(self)
      G.GAME.Unown = true
@@ -22,7 +23,12 @@ local symboldeck = {
            return true
         end
      }))
-  end
+  end,
+  check_for_unlock = function(self, args)
+   if args and args.type == 'unown_cards' then
+      return true
+   end
+  end,
 }
 
 return {name = "Back",

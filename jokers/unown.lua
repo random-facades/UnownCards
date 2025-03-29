@@ -105,6 +105,7 @@ local alph_ruins = {
    end,
    add_to_deck = function(self, card, from_debuff)
       G.GAME.Unown = true
+      check_for_unlock({type = 'unown_cards'})
       if not from_debuff then
          local cards = {}
          local to_create = { 'poke_Unown_poke_UU', 'poke_Unown_poke_UN', 'poke_Unown_poke_UO', 'poke_Unown_poke_UW',
