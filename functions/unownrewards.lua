@@ -8,14 +8,14 @@ local unown_create_card = function(args)
       end
       G.E_MANAGER:add_event(Event({
          func = function()
-            if #area.cards < area.config.card_limit then
+            if #area.cards - (args.edition and args.edition.negative and 1 or 0) < area.config.card_limit then
                play_sound('timpani')
                local _card = SMODS.create_card(args)
                _card:add_to_deck()
                area:emplace(_card)
                G.GAME.consumeable_buffer = 0
-               return true
             end
+            return true
          end
       }))
    end
