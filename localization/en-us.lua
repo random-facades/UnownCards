@@ -17,16 +17,19 @@ return {
          j_poke_alph_ruins = {
             name = "Alph Ruins",
             text = {
-               "Holding {C:dark_edition}U N O W N{}",
-               "When Blind is selected,",
-               "a card in your deck becomes {C:dark_edition}Unown{}",
+               "{C:attention}Holding {C:dark_edition}U N O W N{}",
+               "A played non-{C:dark_edition}Unown{} becomes",
+               "{C:dark_edition}Unown{} after scoring",
             }
          },
          j_poke_unown = {
             name = "Unown",
             text = {
-               "{C:mult}+#1#{} Mult for each Unown in deck",
-               "{C:inactive}(Currently {C:mult}+#2#{C:inactive} Mult)",
+               "A card in your deck becomes",
+               "{C:dark_edition}Unown{} when {C:attention}Blind{} is selected",
+               "{br:3}ERROR - CONTACT STEAK",
+               "Played {C:dark_edition}Unown{} cards give",
+               "{C:mult}+#1#{} Mult when scored",
             }
          },
       },
