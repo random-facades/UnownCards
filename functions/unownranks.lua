@@ -31,8 +31,9 @@ SMODS.Suit {
    keep_base_colours = false,
    lc_color = "374244",
    lc_atlas = 'Unown',
-   ui_atlas = 'pokeui_assets',
-   lc_ui_atlas = 'pokeui_assets',
+   ui_atlas = 'poke_pokeui_assets',
+   lc_ui_atlas = 'poke_pokeui_assets',
+   hc_ui_atlas = 'poke_pokeui_assets',
    in_pool = function(self, args)
       if args and (args.initial_deck or args.rank == '') then
          return false
@@ -160,7 +161,7 @@ SMODS.inject_p_card = function(suit, rank)
             lc_atlas = 'poke_Unown',
             hc_atlas = 'poke_Unown_hc',
             lc_ui_atlas = 'poke_pokeui_assets',
-            hc_ui_atlas = 'poke_pokeui_assets_hc',
+            hc_ui_atlas = 'poke_pokeui_assets',
          }
       end
    else

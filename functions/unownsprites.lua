@@ -75,13 +75,6 @@ SMODS.Atlas({
    py = 18
 }):register()
 
-SMODS.Atlas({
-   key = "pokeui_assets_hc",
-   path = "pokeui_assets.png",
-   px = 18,
-   py = 18
-}):register()
-
 function swap_sprites_sizes(undo)
    for k, v in pairs(SMODS.Stickers) do
       local atlas = G.shared_stickers[v.key].atlas.name
