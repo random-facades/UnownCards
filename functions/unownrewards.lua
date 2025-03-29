@@ -286,6 +286,7 @@ unown_rewards = {
    ZUBAT = function(card) unown_create_joker('j_poke_zubat') end,
 
    -- more joker spawns
+   MILK = function(card) unown_create_joker('j_poke_miltank') end,
    BEEF = function(card) unown_create_joker({'j_poke_miltank','j_poke_tauros'}) end,
    BEEFS = function(card) unown_create_joker({'j_poke_miltank','j_poke_tauros'}) end,
 
