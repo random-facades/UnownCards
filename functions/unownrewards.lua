@@ -22,16 +22,25 @@ local unown_create_card = function(args)
 end
 
 local unown_create_joker = function(key, edition)
+   if type(key) == "table" then
+      key = pseudorandom_element(key, pseudoseed('unown_create_item'))
+   end
    if key and not G.P_CENTERS[key] then return end
    unown_create_card({ set = 'Joker', key = key, edition = edition })
 end
 
 local unown_create_tarot = function(key, edition)
+   if type(key) == "table" then
+      key = pseudorandom_element(key, pseudoseed('unown_create_item'))
+   end
    if key and not G.P_CENTERS[key] then return end
    unown_create_card({ set = 'Tarot', key = key, edition = edition })
 end
 
 local unown_create_planet = function(key, edition)
+   if type(key) == "table" then
+      key = pseudorandom_element(key, pseudoseed('unown_create_item'))
+   end
    if key and not G.P_CENTERS[key] then return end
    unown_create_card({ set = 'Planet', key = key, edition = edition })
 end
@@ -51,11 +60,17 @@ local unown_create_stone_item = function()
 end
 
 local unown_create_energy = function(key, edition)
+   if type(key) == "table" then
+      key = pseudorandom_element(key, pseudoseed('unown_create_item'))
+   end
    if key and not G.P_CENTERS[key] then return end
    unown_create_card({ set = 'Energy', key = key, edition = edition })
 end
 
 local unown_create_spectral = function(card, key, edition)
+   if type(key) == "table" then
+      key = pseudorandom_element(key, pseudoseed('unown_create_item'))
+   end
    if key and not G.P_CENTERS[key] then return end
    if pseudorandom('unown_spectral') < 0.05 then -- 5% chance to create (1 in 20)
       unown_create_card({ set = 'Spectral', key = key, edition = edition })
@@ -270,6 +285,10 @@ unown_rewards = {
    ZORUA = function(card) unown_create_joker('j_poke_zorua') end,
    ZUBAT = function(card) unown_create_joker('j_poke_zubat') end,
 
+   -- more joker spawns
+   BEEF = function(card) unown_create_joker({'j_poke_miltank','j_poke_tauros'}) end,
+   BEEFS = function(card) unown_create_joker({'j_poke_miltank','j_poke_tauros'}) end,
+
    -- denied
    KUM = function(card) unown_nope(card) end,
 
@@ -328,6 +347,7 @@ unown_rewards = {
    HANG = function(card) unown_create_tarot('c_hanged_man') end,
    XIII = function(card) unown_create_tarot('c_death') end,
    DEATH = function(card) unown_create_tarot('c_death') end,
+   DEAD = function(card) unown_create_tarot('c_death') end,
    HORSE = function(card) unown_create_tarot('c_death') end,
    XIV = function(card) unown_create_tarot('c_temperance') end,
    TOTAL = function(card) unown_create_tarot('c_temperance') end,
