@@ -88,17 +88,14 @@ local unown_create_random = function()
          if #G.jokers.cards >= G.jokers.config.card_limit then
             args.area = G.consumeables
             args.set = 'Tarot_Planet'
-            if #G.consumeables.cards >= G.consumeables.config.card_limit then
-               return true
-            end
          end
          if #args.area.cards < args.area.config.card_limit then
             play_sound('timpani')
             local _card = SMODS.create_card(args)
             _card:add_to_deck()
             args.area:emplace(_card)
-            return true
          end
+         return true
       end
    }))
 end
