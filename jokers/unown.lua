@@ -20,7 +20,7 @@ local unown = {
                table.insert(to_change, v)
             end
          end
-         if #to_change then
+         if #to_change > 0 then
             local target = pseudorandom_element(to_change, pseudoseed('unown_joker'))
             G.E_MANAGER:add_event(Event({
                func = function()
