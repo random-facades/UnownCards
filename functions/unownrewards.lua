@@ -2,6 +2,16 @@ local unown_create_card = function(args)
    local area = G.consumeables
    if args.set == 'Joker' then area = G.jokers end
 
+   -- negative will become harder and harder to spawn after each success (1 in 1/3/9/27/81)
+   if args.edition and args.edition.negative then
+      G.GAME.Unown_Chances = G.GAME.Unown_Chances or {}
+      if pseudorandom(args.key .. "_negative") * (G.GAME.Unown_Chances[args.key] or 1) < 1 then
+         G.GAME.Unown_Chances[args.key] = (G.GAME.Unown_Chances[args.key] or 1) * 3
+      else
+         args.edition.negative = nil
+      end
+   end
+
    if #area.cards + (area == G.consumeables and G.GAME.consumeable_buffer or 0) - (args.edition and args.edition.negative and 1 or 0) < area.config.card_limit then
       if area == G.consumeables then
          G.GAME.consumeable_buffer = (G.GAME.consumeable_buffer or 0) + 1
@@ -18,6 +28,13 @@ local unown_create_card = function(args)
             return true
          end
       }))
+      --[[ for announcing failures
+      if #G.play.cards > 0 then
+         local middle_card = G.play.cards[math.ceil(#G.play.cards / 2)]
+         card_eval_status_text(middle_card, 'extra', nil, nil, nil,
+            { message = localize('k_maybe_next_time'), colour = G.C.PURPLE })
+      end
+      --]]
    end
 end
 
@@ -284,8 +301,8 @@ unown_rewards = {
 
    -- more joker spawns
    MILK = function(card) unown_create_joker('j_poke_miltank') end,
-   BEEF = function(card) unown_create_joker({'j_poke_miltank','j_poke_tauros'}) end,
-   BEEFS = function(card) unown_create_joker({'j_poke_miltank','j_poke_tauros'}) end,
+   BEEF = function(card) unown_create_joker({ 'j_poke_miltank', 'j_poke_tauros' }) end,
+   BEEFS = function(card) unown_create_joker({ 'j_poke_miltank', 'j_poke_tauros' }) end,
 
    -- denied
    KUM = function(card) unown_nope(card) end,
